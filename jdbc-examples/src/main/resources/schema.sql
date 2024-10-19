@@ -14,5 +14,6 @@ create table if not exists `address`
     create_time datetime not null default current_timestamp,
     update_time datetime not null default current_timestamp on update current_timestamp,
 
-    index (user_id)
+    unique index (user_id)
 );
+
