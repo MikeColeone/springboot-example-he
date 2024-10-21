@@ -12,6 +12,10 @@ import java.util.Map;
 @Repository
 public interface UserRepository extends CrudRepository<User, String> {
 
+    //删除
+    void deleteAllById(String id);
+
+
     // 查询用户姓名以及对应的address个数，并按姓名正序排序（默认升序）
     @Query("""
             SELECT u.name, COUNT(a.id) AS address_count

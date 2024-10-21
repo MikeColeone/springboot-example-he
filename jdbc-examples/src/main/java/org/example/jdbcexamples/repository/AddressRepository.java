@@ -15,7 +15,8 @@ import java.util.List;
 public interface AddressRepository extends CrudRepository<Address, String> {
 
 
-    //查询通过UserId
+    //查询通过UserId Spring Data JPA 会根据方法名推断出要执行的查询，因此即使没有明确的定义，只要符合命名约定，
+    // 它就能自动实现。如果你有相关的实体类和接口，确保它们正确配置，Spring 会处理这个方法的实现。
     List<Address> findByUserId(String uid);
 
     //基于userid查询address信息
