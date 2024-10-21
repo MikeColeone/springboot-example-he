@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-//创建AddressUserMapper 实现接口Rowmapper
+//创建AddressUserMapper 实现接口Row mapper
 public class AddressUserRowMapper implements RowMapper<AddressUser> {
 
     @Override

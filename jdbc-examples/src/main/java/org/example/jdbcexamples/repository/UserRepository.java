@@ -2,6 +2,7 @@ package org.example.jdbcexamples.repository;
 
 import lombok.Data;
 import org.example.jdbcexamples.dox.User;
+import org.example.jdbcexamples.dto.UserCount;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -24,5 +25,5 @@ public interface UserRepository extends CrudRepository<User, String> {
             GROUP BY u.name
             ORDER BY u.name
             """)
-    List<Map<String, Object>> findUserNamesWithAddressCount();
+    List<UserCount> findUserNamesWithAddressCount();
 }

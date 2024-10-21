@@ -15,7 +15,7 @@ import java.util.List;
 public interface AddressRepository extends CrudRepository<Address, String> {
 
 
-    //查询通过UserId Spring Data JPA 会根据方法名推断出要执行的查询，因此即使没有明确的定义，只要符合命名约定，
+    // 查询通过UserId Spring Data JPA 会根据方法名推断出要执行的查询，因此即使没有明确的定义，只要符合命名约定，
     // 它就能自动实现。如果你有相关的实体类和接口，确保它们正确配置，Spring 会处理这个方法的实现。
     List<Address> findByUserId(String uid);
 
@@ -43,7 +43,7 @@ public interface AddressRepository extends CrudRepository<Address, String> {
             """)
     void updateDetailUser(String detail, String id);
 
-    //基于addressId查询address信息和全部user信息
+    //基于addressId查询address信息和user信息
     @Query(value = "select * from address a,user u where a.user_id=u.id and a.id=:aid",
             rowMapperClass = AddressUserRowMapper.class)
     AddressUser findAddressUserById1(String aid);
