@@ -19,6 +19,7 @@ public class ResultVO {
     //只返回成功的状态 不返回数据
 
     private static final ResultVO EMPTY = ResultVO.builder().code(200).build();
+    //每次请求的不必都创建对象 所以构建一个ResultVO对象做一个缓存 不必每次都创建
     public static ResultVO ok(){
         return EMPTY;
     }
