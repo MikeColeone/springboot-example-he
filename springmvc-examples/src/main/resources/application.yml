@@ -1,5 +1,4 @@
-自动读取生成数据表
-
+#自动读取生成数据表
 spring:
   jackson:
     default-property-inclusion: non_null
