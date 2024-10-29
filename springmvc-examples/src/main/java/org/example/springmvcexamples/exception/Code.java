@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum Code {
+    //创建实例
     LOGIN_ERROR(Code.ERROR, "用户名密码错误"),
     BAD_REQUEST(Code.ERROR, "请求错误"),
     UNAUTHORIZED(401, "未登录"),
