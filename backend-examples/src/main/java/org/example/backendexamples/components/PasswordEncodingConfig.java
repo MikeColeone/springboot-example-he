@@ -1,4 +1,4 @@
-package org.example.springmvcexamples.component;
+package org.example.backendexamples.components;
 
 
 import org.springframework.context.annotation.Bean;

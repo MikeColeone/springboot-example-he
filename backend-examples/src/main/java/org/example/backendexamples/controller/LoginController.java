@@ -1,22 +1,19 @@
-package org.example.springmvcexamples.controller;
+package org.example.backendexamples.controller;
 
-import com.fasterxml.jackson.datatype.jsr310.ser.DurationSerializer;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.springmvcexamples.component.JWTComponent;
-import org.example.springmvcexamples.component.PasswordEncodingConfig;
-import org.example.springmvcexamples.dox.User;
-import org.example.springmvcexamples.exception.Code;
-import org.example.springmvcexamples.vo.ResultVO;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.backendexamples.components.JWTComponent;
+import org.example.backendexamples.components.PasswordEncodingConfig;
+import org.example.backendexamples.dox.User;
+import org.example.backendexamples.exception.Code;
+import org.example.backendexamples.service.UserService;
+import org.example.backendexamples.vo.ResultVO;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.example.springmvcexamples.service.UserService;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.Map;
 
 @Slf4j
@@ -35,7 +32,6 @@ public class LoginController {
     public ResultVO login(@RequestBody User user, HttpServletResponse response){
         User userR = userService.getUserByAccount(user.getAccount());
         if (userR==null|| !passwordEncoder.matches(user.getPassword(),userR.getPassword())){
-
             System.out.println("=================");
             return ResultVO.error(Code.LOGIN_ERROR);
 

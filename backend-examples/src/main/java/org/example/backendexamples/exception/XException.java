@@ -1,5 +1,4 @@
-package org.example.springmvcexamples.exception;
-
+package org.example.backendexamples.exception;
 
 import lombok.*;
 
