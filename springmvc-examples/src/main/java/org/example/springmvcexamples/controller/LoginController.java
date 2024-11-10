@@ -27,7 +27,6 @@ public class LoginController {
 
     //构造函数注入的组件必须加final
     private final UserService userService;
-    private final PasswordEncodingConfig passwordEncodingConfig;
     private final PasswordEncoder passwordEncoder;
 
     private final JWTComponent jwtComponent;
@@ -36,12 +35,13 @@ public class LoginController {
         User userR = userService.getUserByAccount(user.getAccount());
         if (userR==null|| !passwordEncoder.matches(user.getPassword(),userR.getPassword())){
 
-            System.out.println("=================");
             return ResultVO.error(Code.LOGIN_ERROR);
 
         }
+        log.info("login success");
         //Map的键对应的值不允许为空
         String token = jwtComponent.encode(Map.of("uid",userR.getId(),"role",userR.getRole()));
+        log.debug("token:{}",token);
         //将token放在header
         response.setHeader("token",token);
         response.setHeader("role",userR.getRole()); //可以设成两套值 加大破解的难度

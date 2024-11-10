@@ -1,1 +1,2 @@
 GET localhost:8080/api/admin/users
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiY25kbiIsInVpZCI6IjEiLCJpYXQiOjE3MzEyNDk1NjIsImV4cCI6MTczMTMzNTk2Mn0.4QE619FegMxor4dIpZVTacjgO96KKDvE_rRmOFxpGDU

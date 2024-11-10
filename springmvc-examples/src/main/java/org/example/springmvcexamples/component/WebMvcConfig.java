@@ -17,6 +17,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry){//一个星一层
         registry.addInterceptor(loginInterceptor).addPathPatterns("/api/**").excludePathPatterns("/api/login");
-        registry.addInterceptor(adminInterceptor).addPathPatterns("/api/**").excludePathPatterns("/api/login");
+        registry.addInterceptor(adminInterceptor).addPathPatterns("/api/admin/**");
     }
 }

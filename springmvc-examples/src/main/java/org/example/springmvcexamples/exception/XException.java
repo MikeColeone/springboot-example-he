@@ -4,8 +4,9 @@ package org.example.springmvcexamples.exception;
 import lombok.*;
 
 //通用异常名 因为异常类是抽象的 所有类都可用
-
+//该注解将使子类只考虑自己属性equals和hashcode
 @EqualsAndHashCode(callSuper = false)
+
 
 @Builder
 @Data

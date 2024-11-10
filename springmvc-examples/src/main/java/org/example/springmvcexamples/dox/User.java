@@ -15,16 +15,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class User {
-    public static String ADMIN = "cndn";
-    public static String USER = "vndi";
+    public static final String ADMIN = "admin";
+    public static final String USER = "users";
 
     private String id;
     private String name;
     private String account;
-
     //序列化的时候忽略掉
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String role;
     private LocalDateTime createTime;
 }

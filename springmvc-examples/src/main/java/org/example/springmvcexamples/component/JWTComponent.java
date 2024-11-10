@@ -31,7 +31,7 @@ public class JWTComponent {
         algorithm = Algorithm.HMAC256(secretkey);
     }
 
-    //进行编码 用户
+    //进行编码 签发token
     public String encode(Map<String,Object> map){
         LocalDateTime time = LocalDateTime.now().plusDays(1);
         return JWT.create()
