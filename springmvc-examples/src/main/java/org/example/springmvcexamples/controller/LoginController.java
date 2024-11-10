@@ -5,12 +5,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.springmvcexamples.component.JWTComponent;
-import org.example.springmvcexamples.component.PasswordEncodingConfig;
+import org.example.springmvcexamples.component.PasswordEncodingConfig;  //不需要导入配置类 由spring自动扫描机制注册
 import org.example.springmvcexamples.dox.User;
 import org.example.springmvcexamples.exception.Code;
 import org.example.springmvcexamples.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder; //导入是必须的 配置类只是实现了该接口  但是自动注入的时候还是要导入该接口
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
