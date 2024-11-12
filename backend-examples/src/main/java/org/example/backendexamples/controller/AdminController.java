@@ -24,7 +24,8 @@ public class AdminController {
     //更新密码
     @PutMapping("users/{account}/password")
     public ResultVO putPassword(@PathVariable String account){
-
+        userService.UpdateUserPassword(account);
+        return ResultVO.ok();
     }
     @PostMapping("user")
     public ResultVO getUser(){

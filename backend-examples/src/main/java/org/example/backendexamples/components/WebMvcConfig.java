@@ -1,8 +1,8 @@
 package org.example.backendexamples.components;
 
 import lombok.RequiredArgsConstructor;
-import org.example.springmvcexamples.interceptor.AdminInterceptor;
-import org.example.springmvcexamples.interceptor.LoginInterceptor;
+import org.example.backendexamples.interceptor.AdminInterceptor;
+import org.example.backendexamples.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -16,6 +16,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry){//一个星一层
         registry.addInterceptor(loginInterceptor).addPathPatterns("/api/**").excludePathPatterns("/api/login");
-        registry.addInterceptor(adminInterceptor).addPathPatterns("/api/**").excludePathPatterns("/api/login");
+        registry.addInterceptor(adminInterceptor).addPathPatterns("/api/admin/**");
     }
 }

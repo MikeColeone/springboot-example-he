@@ -5,7 +5,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.backendexamples.dox.User;
 import org.example.backendexamples.service.UserService;
+import org.example.backendexamples.vo.ResultVO;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,4 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/")
 public class UserController {
     private final UserService userService;
+
+    public ResultVO patchPassword(@RequestBody User user, @RequestAttribute("uid") String uid) {
+        userService.UpdateUserPasswordById(uid, user.getPassword());
+        return ResultVO.ok();
+    }
 }

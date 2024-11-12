@@ -3,9 +3,9 @@ package org.example.backendexamples.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.springmvcexamples.dox.User;
-import org.example.springmvcexamples.exception.Code;
-import org.example.springmvcexamples.exception.XException;
+import org.example.backendexamples.dox.User;
+import org.example.backendexamples.exception.Code;
+import org.example.backendexamples.exception.XException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 

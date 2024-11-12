@@ -1,4 +1,5 @@
 package org.example.backendexamples.service;
+import lombok.RequiredArgsConstructor;
 import org.example.backendexamples.dox.User;
 import org.example.backendexamples.exception.Code;
 import org.example.backendexamples.exception.XException;
@@ -13,20 +14,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
+@RequiredArgsConstructor
 @Service
 public class InitService {
     private final UserRepository userRepository;
-
-    public InitService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final PasswordEncoder passwordEncoder;
 
     @EventListener(ApplicationReadyEvent.class)
     public void init(){
         String account = "admin";
         long count = userRepository.count();
-        if(count>0)return;
-        User user = User.builder().name(account).role(User.ADMIN).build();
+        if(count>0)return; //有记录
+        User user = User.builder().name(account).account(passwordEncoder.encode(account)).password(account).role(User.ADMIN).build();
 
     }
 
