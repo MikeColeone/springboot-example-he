@@ -18,9 +18,9 @@ public class RedissonTest {
     @Test
     public void testRedisson(){
         var name = "hdx";
-        var key = "users:14";
+        var key = "users:12";
         RBucket<String> bucket = client.getBucket(key, StringCodec.INSTANCE);
-        log.info("bucket = {}",bucket);
+        log.info("bucket = {}",bucket.isExists());
         bucket.set(name);
 
         RBucket<String> bucket1 = client.getBucket(key, StringCodec.INSTANCE);
